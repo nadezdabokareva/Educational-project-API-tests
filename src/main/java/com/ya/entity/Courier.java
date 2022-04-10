@@ -2,21 +2,10 @@ package com.ya.entity;
 
 public class Courier implements Cloneable {
 
-    private class CourierCredentials{
-        private String login;
-        private String password;
-
-        protected CourierCredentials(String login, String password) {
-            this.login = login;
-            this.password = password;
-        }
-    }
-
     private String login;
     private String password;
     private String firstName;
     private int id;
-
     public Courier(String login, String password, String firstName) {
         this.login = login;
         this.password = password;
@@ -30,20 +19,21 @@ public class Courier implements Cloneable {
         return login;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
     public void setLogin(String login) {
         this.login = login;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public void setPassword(String password) {
         this.password = password;
+        this.getCourierCredentials();
+    }
+
+    public String getFirstName() {
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
@@ -63,7 +53,23 @@ public class Courier implements Cloneable {
     }
 
     @Override
-    public Object clone() throws CloneNotSupportedException {
-        return super.clone();
+    public Object clone() {
+        Object object = null;
+        try {
+            object = super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return object;
+    }
+
+    private class CourierCredentials {
+        private final String login;
+        private final String password;
+
+        protected CourierCredentials(String login, String password) {
+            this.login = login;
+            this.password = password;
+        }
     }
 }

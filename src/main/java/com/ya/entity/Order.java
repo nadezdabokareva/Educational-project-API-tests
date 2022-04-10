@@ -2,7 +2,6 @@ package com.ya.entity;
 
 public class Order {
 
-
     private Integer id;
     private Integer track;
 
@@ -19,11 +18,7 @@ public class Order {
     public Order() {
     }
 
-    public Order(String firstName, String lastName,
-                 String address, String metroStation,
-                 String phone, Integer rentTime,
-                 String deliveryDate, String comment,
-                 String[] color) {
+    public Order(String firstName, String lastName, String address, String metroStation, String phone, Integer rentTime, String deliveryDate, String comment, String[] color) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -118,7 +113,6 @@ public class Order {
     public Integer getTrack() {
         return track;
     }
-
 
     public void setTrack(Integer track) {
         this.track = track;
